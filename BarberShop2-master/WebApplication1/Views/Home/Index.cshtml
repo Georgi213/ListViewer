@@ -1,0 +1,60 @@
+﻿
+
+@{
+    ViewData["Title"] = "Index";
+}
+<style>
+     p, h1 {
+        text-align: left;
+        color: whitesmoke;
+    }
+
+    body {
+        background: Teal;
+    }
+
+    .double-border-button {
+        text-decoration: none;
+        display: inline-block;
+        margin: 10px 20px;
+        padding: 10px 30px;
+        position: relative;
+        border: 2px solid lightblue;
+        color: lightblue;
+        font-family: 'Montserrat', sans-serif;
+        transition: .4s;
+    }
+
+        .double-border-button:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            margin: auto;
+            border: 2px solid rgba(0, 0, 0, 0);
+            transition: .4s;
+            color: lightblue;
+        }
+
+        .double-border-button:hover:after {
+            border-color: lightblue;
+            width: calc(100% - 10px);
+            color: lightblue;
+            height: calc(100% + 10px);
+        }
+</style>
+<h1>BarberShop</h1>
+
+<p>
+    Tere tulemast meie autoremontide töökoda.
+    Ma tahan teatada , et oleme nüüd avatud ja ootame uusi külalisi.
+</p>
+<a class="double-border-button" asp-area="" asp-controller="Tellimus" asp-action="Create">Telli teenust</a>
+<br />
+
+
+

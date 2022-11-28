@@ -1,0 +1,57 @@
+﻿@model IEnumerable<WebApplication1.Models.Tellimus>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Tootaja)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Teenus)
+            </th>
+        
+            <th>
+                @Html.DisplayNameFor(model => model.Kuupaev)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Aeg)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                    @Html.DisplayFor(modelItem => item.Tootaja.TootajaID)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.Teenus.TeenusID)
+            </td>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.Kuupaev)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Aeg)
+            </td>
+            <td>
+                @if (User.IsInRole("Admin")){
+                <a asp-action="Edit" asp-route-id="@item.TellimusID">Edit</a> 
+                <a asp-action="Details" asp-route-id="@item.TellimusID">Details</a> 
+                <a asp-action="Delete" asp-route-id="@item.TellimusID">Delete</a>
+                    }
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
